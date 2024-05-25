@@ -15,6 +15,13 @@
       "when": 1716088964063,
       "tag": "0001_next_zaran",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1716598997201,
+      "tag": "0002_shocking_cammi",
+      "breakpoints": true
     }
   ]
 }
