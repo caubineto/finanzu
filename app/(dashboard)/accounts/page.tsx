@@ -51,7 +51,7 @@ const AccountsPage = () => {
                 </CardHeader>
                 <CardContent>
                     <DataTable
-                        filterKey="nome"
+                        filterKey="name"
                         columns={columns}
                         data={accounts}
                         onDelete={(row) => {
