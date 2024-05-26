@@ -108,6 +108,38 @@ const app = new Hono()
         }
     )
     .post(
+        "/bulk-create",
+        clerkMiddleware(),
+        zValidator(
+            "json",
+            z.array(
+                insertTransactionSchema.omit({
+                    id: true,
+                }),
+            ),
+        ),
+        async (c) => {
+            const auth = getAuth(c);
+            const values = c.req.valid("json");
+
+            if (!auth?.userId) {
+                return c.json({ error: "Sem autorização" }, 401);
+            }
+
+            const data = await db
+                .insert(transactions)
+                .values(
+                    values.map((value) => ({
+                        id: createId(),
+                        ...value,
+                    }))
+                )
+                .returning();
+
+            return c.json({ data });
+        },
+    )
+    .post(
         "/",
         clerkMiddleware(),
         zValidator("json", insertTransactionSchema.omit({
