@@ -157,7 +157,7 @@ const app = new Hono()
                 id: createId(),
                 ...values
             }).returning();
-
+            console.log(data);
 
             return c.json({ data });
         })
@@ -245,6 +245,7 @@ const app = new Hono()
                     inArray(transactions.id, sql`(select id from ${transactionsToUpdate})`)
                 )
                 .returning();
+                console.log(data);
 
 
             if (!data) {
