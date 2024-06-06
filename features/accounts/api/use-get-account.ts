@@ -12,7 +12,7 @@ export const useGetAccount = (id?: string) => {
             });
 
             if (!response.ok) {
-                throw new Error("Falha ao buscar conta");
+                throw new Error("Falha ao buscar conta!");
             }
 
             const { data } = await response.json();
