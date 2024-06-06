@@ -83,10 +83,10 @@ export function formatDateRange(period?: Period) {
   }
 
   if (period.to) {
-    return `${format(new Date(period.from), "dd LLL", { locale: ptBR })} - ${format(new Date(period.to), "dd LLL, y", { locale: ptBR })}`;
+    return `${format(period.from, "dd LLL", { locale: ptBR })} - ${format(period.to, "dd LLL, y", { locale: ptBR })}`;
   }
 
-  return format(new Date(period.from), "dd LLL, y", { locale: ptBR })
+  return format(period.from, "dd LLL, y", { locale: ptBR })
 };
 
 export function formatPercentage(
